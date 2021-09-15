@@ -248,7 +248,7 @@ public class FXMLDocumentController implements Initializable {
     }
     
     private boolean isBlank(String text){
-        if(text!=null&&text!=""&&text.length()>0){
+        if(text!=null&&text!=""){
             return false;
         }
         return true;

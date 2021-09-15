@@ -47,7 +47,7 @@
             <Button fx:id="soma" mnemonicParsing="false" onAction="#acaoBotao" onKeyPressed="#acaoDigitar" prefHeight="78.0" prefWidth="108.0" text="+" GridPane.columnIndex="3" GridPane.rowIndex="3" />
          </children>
       </GridPane>
-      <TextField fx:id="visor" alignment="CENTER_RIGHT" editable="false" layoutX="-3.0" layoutY="-7.0" prefHeight="98.0" prefWidth="381.0" stylesheets="@CSS/Style.css">
+      <TextField fx:id="visor" alignment="CENTER_RIGHT" editable="false" layoutX="-3.0" layoutY="-7.0" prefHeight="98.0" prefWidth="381.0" promptText="0" stylesheets="@CSS/Style.css">
          <font>
             <Font name="Arial" size="52.0" />
          </font>
