@@ -70,6 +70,8 @@ public class FXMLDocumentController implements Initializable {
     
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -79,7 +81,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void acaoDigitar(KeyEvent event) throws ScriptException {
        if (event.getCode() == KeyCode.NUMPAD1 || 
-               event.getCode() == KeyCode.DIGIT1){
+         event.getCode() == KeyCode.DIGIT1){
          visor.setText(visor.getText() + 1);
        }
        else if (event.getCode() == KeyCode.BACK_SPACE){
@@ -131,22 +133,32 @@ public class FXMLDocumentController implements Initializable {
         else if (event.getCode() == KeyCode.CLOSE_BRACKET){
          visor.setText(visor.getText() + ')' );
        }
+          else if (event.getCode() == KeyCode.PERIOD ||
+                  event.getCode() == KeyCode.COMMA ||
+                  event.getCode() == KeyCode.DECIMAL){
+         visor.setText(visor.getText() + '.' );
+         ponto.disableProperty().set(true);
+       }
          else if (event.getCode() == KeyCode.DELETE){
          visor.setText("");
        }
         else if (event.getCode() == KeyCode.PLUS ||
                 event.getCode() == KeyCode.ADD){
           visor.setText(visor.getText() + '+' );
+          ponto.disableProperty().set(false);
        }
         else if (event.getCode() == KeyCode.SUBTRACT ||
                 event.getCode() == KeyCode.MINUS){
           visor.setText(visor.getText() + '-' );
+          ponto.disableProperty().set(false);
        } 
         else if (event.getCode() == KeyCode.MULTIPLY){
           visor.setText(visor.getText() + '*' );
+          ponto.disableProperty().set(false);
        } 
            else if (event.getCode() == KeyCode.DIVIDE){
           visor.setText(visor.getText() + '/' );
+          ponto.disableProperty().set(false);
        }    
         else if (event.getCode() == KeyCode.EQUALS ||
                 event.getCode() == KeyCode.ENTER){
