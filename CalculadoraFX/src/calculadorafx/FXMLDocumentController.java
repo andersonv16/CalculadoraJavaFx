@@ -127,7 +127,8 @@ public class FXMLDocumentController implements Initializable {
          else if (event.getCode() == KeyCode.DELETE){
          visor.setText("");
        }
-        else if (event.getCode() == KeyCode.ADD | event.getCode() == KeyCode.PLUS){
+        else if (event.getCode() == KeyCode.PLUS ||
+                event.getCode() == KeyCode.ADD){
           visor.setText(visor.getText() + '+' );
        }
         else if (event.getCode() == KeyCode.SUBTRACT ||
@@ -160,88 +161,74 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void acaoBotao(ActionEvent event) throws ScriptException {
     
-        if (event.getSource() == um){
-        visor.setText(visor.getText() + 1);
-       
-    }
-        else if (event.getSource() == dois){
-        visor.setText(visor.getText() + 2);
-    }
-             else if (event.getSource() == tres){
-        visor.setText(visor.getText() + 3);
-    }
-             else if (event.getSource() == quatro){
-        visor.setText(visor.getText() + 4);
-    }
-             else if (event.getSource() == cinco){
-        visor.setText(visor.getText() + 5);
-    }
-             else if (event.getSource() == seis){
-        visor.setText(visor.getText() + 6);
-    }
-             else if (event.getSource() == sete){
-        visor.setText(visor.getText() + 7);
-    }
-             else if (event.getSource() == oito){
-        visor.setText(visor.getText() + 8);
-    }
-             else if (event.getSource() == nove){
-        visor.setText(visor.getText() + 9);
-    }
-             else if (event.getSource() == zero){
-        visor.setText(visor.getText() + 0);
-    }
-              else if (event.getSource() == parent1){
-        visor.setText(visor.getText() + "(");
-    }
-              else if (event.getSource() == parentv2){
-        visor.setText(visor.getText() + ")");
-    }
-            else if (event.getSource() == clean){
+        String number = getButtonValue(event);
+        String textResult = visor.getText();
+        if(".".equals(number.trim())){
+            boolean contains = textResult.contains(".");
+            if(contains||isBlank(textResult)){
+                return;
+            }else {
+                visor.setText(textResult+".");
+                return;
+            }
+        }
+        visor.setText(visor.getText()+number);
+
+        if (event.getSource() == clean){
               visor.setText(" ");
               ponto.disableProperty().set(false);
     }
          else if (event.getSource() == soma){
-          visor.setText(visor.getText() + "+");
+          visor.setText(visor.getText());
           ponto.disableProperty().set(false);
     
        }
             else if (event.getSource() == subtracao){
-          visor.setText(visor.getText() + "-");
+          visor.setText(visor.getText());
           ponto.disableProperty().set(false);
     
        }
             else if (event.getSource() == multip){
-          visor.setText(visor.getText() + "*");
+          visor.setText(visor.getText());
           ponto.disableProperty().set(false);
     
        }
           else if (event.getSource() == divisao){
-          visor.setText(visor.getText() + "/");
+          visor.setText(visor.getText());
           ponto.disableProperty().set(false);
     
        }
-          
-          else if (event.getSource() == igual){
-            Object calc = "Error" ;
-              try {
-          String result = visor.getText(); 
+    }
+    
+                @FXML
+          private void acaoIgual(ActionEvent event) throws ScriptException{
+          Object calc;
           ScriptEngineManager manager = new ScriptEngineManager();
           ScriptEngine engine = manager.getEngineByName("js");
-          calc = engine.eval(result);
-              }
-              catch (ScriptException e){
-               visor.setText("Operação Invalida!!");
-              }
+          calc = engine.eval(visor.getText());  
           visor.setText(String.valueOf(calc));
           ponto.disableProperty().set(false);
           }
        
-    }
             @FXML
         void acaoPonto(MouseEvent event) {
          visor.setText(visor.getText() + ".");
          ponto.disableProperty().set(true);
     }
+        
+     
+    private String getButtonValue(ActionEvent event){
+        Button acaoBotao = (Button)event.getSource();
+        return acaoBotao.getText();
+    
+    }
+    
+    private boolean isBlank(String text){
+        if(text!=null&&text!=""&&text.length()>0){
+            return false;
+        }
+        return true;
+    }
+ 
 
 }

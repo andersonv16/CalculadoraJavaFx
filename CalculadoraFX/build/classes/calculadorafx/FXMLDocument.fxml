@@ -39,7 +39,7 @@
             <Button fx:id="subtracao" mnemonicParsing="false" onAction="#acaoBotao" onKeyPressed="#acaoDigitar" prefHeight="78.0" prefWidth="108.0" text="-" GridPane.columnIndex="3" GridPane.rowIndex="2" />
             <Button fx:id="zero" mnemonicParsing="false" onAction="#acaoBotao" onKeyPressed="#acaoDigitar" prefHeight="78.0" prefWidth="108.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Button fx:id="ponto" mnemonicParsing="false" onKeyPressed="#acaoDigitar" onMouseClicked="#acaoPonto" prefHeight="78.0" prefWidth="108.0" text="." GridPane.rowIndex="4" />
-            <Button fx:id="igual" mnemonicParsing="false" onAction="#acaoBotao" onKeyPressed="#acaoDigitar" prefHeight="78.0" prefWidth="108.0" text="=" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Button fx:id="igual" mnemonicParsing="false" onAction="#acaoIgual" onKeyPressed="#acaoDigitar" prefHeight="78.0" prefWidth="108.0" text="=" GridPane.columnIndex="3" GridPane.rowIndex="4" />
             <Button fx:id="parent1" mnemonicParsing="false" onAction="#acaoBotao" onKeyPressed="#acaoDigitar" prefHeight="78.0" prefWidth="108.0" text="(" />
             <Button fx:id="parentv2" mnemonicParsing="false" onAction="#acaoBotao" onKeyPressed="#acaoDigitar" prefHeight="78.0" prefWidth="108.0" text=")" GridPane.columnIndex="1" />
             <Button fx:id="clean" mnemonicParsing="false" onAction="#acaoBotao" onKeyPressed="#acaoDigitar" prefHeight="78.0" prefWidth="108.0" text="CL" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" />
