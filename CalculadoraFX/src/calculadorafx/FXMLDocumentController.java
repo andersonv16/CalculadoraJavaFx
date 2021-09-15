@@ -189,7 +189,7 @@ public class FXMLDocumentController implements Initializable {
     
        }
             else if (event.getSource() == multip){
-          visor.setText(visor.getText());
+          visor.setText(visor.getText().replace('X', '*'));
           ponto.disableProperty().set(false);
     
        }
@@ -202,10 +202,15 @@ public class FXMLDocumentController implements Initializable {
     
                 @FXML
           private void acaoIgual(ActionEvent event) throws ScriptException{
-          Object calc;
+          Object calc = "Erro";
+          try {
           ScriptEngineManager manager = new ScriptEngineManager();
           ScriptEngine engine = manager.getEngineByName("js");
           calc = engine.eval(visor.getText());  
+              }
+              catch (ScriptException e){
+               visor.setText("Operação Invalida!!");
+              }
           visor.setText(String.valueOf(calc));
           ponto.disableProperty().set(false);
           }
