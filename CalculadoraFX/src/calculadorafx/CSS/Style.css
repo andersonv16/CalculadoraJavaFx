@@ -1,0 +1,48 @@
+.button{
+    -fx-background-color:rgba(70, 141, 223, 0.979);
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+}
+
+#visor{
+    -fx-background-color:rgba(24, 61, 224, 0.459);
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+#parent1 {
+    -fx-background-color:rgb(24, 61, 224);
+}
+
+#parentv2{
+    -fx-background-color:rgb(24, 61, 224);
+}
+
+#potenc{
+    -fx-background-color:rgb(24, 61, 224);
+}
+
+#clean{
+    -fx-background-color:rgb(24, 61, 224);
+}
+
+#divisao{
+    -fx-background-color:rgb(24, 61, 224);
+}
+
+#multip{
+    -fx-background-color:rgb(24, 61, 224);
+}
+
+#subtracao{
+    -fx-background-color:rgb(24, 61, 224);
+}
+
+#soma{
+    -fx-background-color:rgb(24, 61, 224);
+}
+#igual{
+    -fx-background-color:rgba(245, 143, 9, 0.973);
+}
+
+
