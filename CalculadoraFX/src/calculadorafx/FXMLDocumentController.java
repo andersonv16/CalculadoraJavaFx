@@ -82,6 +82,13 @@ public class FXMLDocumentController implements Initializable {
                event.getCode() == KeyCode.DIGIT1){
          visor.setText(visor.getText() + 1);
        }
+       else if (event.getCode() == KeyCode.BACK_SPACE){
+           String text = visor.getText();
+           if(text!=null&&text!=""&&text.length()>0){
+            text=text.substring(0,text.length()-1);
+            visor.setText(text);
+       }
+       }
       else if (event.getCode() == KeyCode.NUMPAD2  ||
               event.getCode() == KeyCode.DIGIT2) {
          visor.setText(visor.getText() + 2);
