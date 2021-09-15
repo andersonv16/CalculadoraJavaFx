@@ -15,7 +15,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import static javafx.scene.input.KeyEvent.KEY_PRESSED;
 import javafx.scene.input.MouseEvent;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
@@ -68,8 +67,6 @@ public class FXMLDocumentController implements Initializable {
     private Button clean;
     @FXML
     private TextField visor;
-
-   boolean isEqualCalled = false;
     
     /**
      * Initializes the controller class.
@@ -81,34 +78,44 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void acaoDigitar(KeyEvent event) throws ScriptException {
-       if (event.getCode() == KeyCode.NUMPAD1 || event.getCode() == KeyCode.DIGIT1){
+       if (event.getCode() == KeyCode.NUMPAD1 || 
+               event.getCode() == KeyCode.DIGIT1){
          visor.setText(visor.getText() + 1);
        }
-      else if (event.getCode() == KeyCode.NUMPAD2  || event.getCode() == KeyCode.DIGIT2) {
+      else if (event.getCode() == KeyCode.NUMPAD2  ||
+              event.getCode() == KeyCode.DIGIT2) {
          visor.setText(visor.getText() + 2);
        }
-       else if (event.getCode() == KeyCode.NUMPAD3 || event.getCode() == KeyCode.DIGIT3){
+       else if (event.getCode() == KeyCode.NUMPAD3 ||
+               event.getCode() == KeyCode.DIGIT3){
          visor.setText(visor.getText() + 3);
        }
-       else if (event.getCode() == KeyCode.NUMPAD4 || event.getCode() == KeyCode.DIGIT4){
+       else if (event.getCode() == KeyCode.NUMPAD4 ||
+               event.getCode() == KeyCode.DIGIT4){
          visor.setText(visor.getText() + 4);
        }
-       else if (event.getCode() == KeyCode.NUMPAD5 || event.getCode() == KeyCode.DIGIT5 ){
+       else if (event.getCode() == KeyCode.NUMPAD5 || 
+               event.getCode() == KeyCode.DIGIT5 ){
          visor.setText(visor.getText() + 5);
        }
-        else if (event.getCode() == KeyCode.NUMPAD6 || event.getCode() == KeyCode.DIGIT6){
+        else if (event.getCode() == KeyCode.NUMPAD6 ||
+                event.getCode() == KeyCode.DIGIT6){
          visor.setText(visor.getText() + 6);
        }
-        else if (event.getCode() == KeyCode.NUMPAD7|| event.getCode() == KeyCode.DIGIT7){
+        else if (event.getCode() == KeyCode.NUMPAD7||
+                event.getCode() == KeyCode.DIGIT7){
          visor.setText(visor.getText() + 7);
        }
-        else if (event.getCode() == KeyCode.NUMPAD8 || event.getCode() == KeyCode.DIGIT8){
+        else if (event.getCode() == KeyCode.NUMPAD8 ||
+                event.getCode() == KeyCode.DIGIT8){
          visor.setText(visor.getText() + 8);
        }
-       else if (event.getCode() == KeyCode.NUMPAD9 || event.getCode() == KeyCode.DIGIT9){
+       else if (event.getCode() == KeyCode.NUMPAD9 ||
+               event.getCode() == KeyCode.DIGIT9){
          visor.setText(visor.getText() + 9);
        }
-       else if (event.getCode() == KeyCode.NUMPAD0 || event.getCode() == KeyCode.DIGIT0){
+       else if (event.getCode() == KeyCode.NUMPAD0 ||
+               event.getCode() == KeyCode.DIGIT0){
          visor.setText(visor.getText() + 0);
        }
        else if (event.getCode() == KeyCode.OPEN_BRACKET){
@@ -123,7 +130,8 @@ public class FXMLDocumentController implements Initializable {
         else if (event.getCode() == KeyCode.ADD | event.getCode() == KeyCode.PLUS){
           visor.setText(visor.getText() + '+' );
        }
-        else if (event.getCode() == KeyCode.SUBTRACT | event.getCode() == KeyCode.MINUS){
+        else if (event.getCode() == KeyCode.SUBTRACT ||
+                event.getCode() == KeyCode.MINUS){
           visor.setText(visor.getText() + '-' );
        } 
         else if (event.getCode() == KeyCode.MULTIPLY){
@@ -132,7 +140,8 @@ public class FXMLDocumentController implements Initializable {
            else if (event.getCode() == KeyCode.DIVIDE){
           visor.setText(visor.getText() + '/' );
        }    
-        else if (event.getCode() == KeyCode.EQUALS || event.getCode() == KeyCode.ENTER){
+        else if (event.getCode() == KeyCode.EQUALS ||
+                event.getCode() == KeyCode.ENTER){
           Object calc = "Error" ;
               try {
           String result = visor.getText(); 
@@ -140,7 +149,7 @@ public class FXMLDocumentController implements Initializable {
           ScriptEngine engine = manager.getEngineByName("js");
            calc = engine.eval(result);
               }
-              catch (Exception e){
+              catch (ScriptException e){
                visor.setText("Operação Invalida!!");
               }
           visor.setText(String.valueOf(calc));
@@ -221,7 +230,7 @@ public class FXMLDocumentController implements Initializable {
           ScriptEngine engine = manager.getEngineByName("js");
           calc = engine.eval(result);
               }
-              catch (Exception e){
+              catch (ScriptException e){
                visor.setText("Operação Invalida!!");
               }
           visor.setText(String.valueOf(calc));
