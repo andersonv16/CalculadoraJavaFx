@@ -157,7 +157,6 @@ public class FXMLDocumentController implements Initializable {
     }
         else if (event.getSource() == dois){
         visor.setText(visor.getText() + 2);
-         event.consume();
     }
              else if (event.getSource() == tres){
         visor.setText(visor.getText() + 3);
